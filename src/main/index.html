@@ -5,20 +5,29 @@
     <title>Title</title>
 </head>
 <body>
-    <form method="POST" action="">
+    <h2>Créer une nouvelle tâche</h2>
+    <form method="POST" action="http://localhost:8080/todolist-1.0-SNAPSHOT/api/todo/create">
         <p>Quelle est l'urgence de la tâche ?</p>
         <div>
-            <input type="radio" name="urgence" id="urgent" value="urgent">
-            <label for="urgent">Urgent</label>
-            <input type="radio" name="urgence" id="normal" value="normal">
-            <label for="normal">normal</label>
-            <input type="radio" name="urgence" id="pas_urgent" value="pas urgent">
-            <label for="pas_urgent">pas urgent</label>
+            <input type="radio" name="urgence" id="eleve" value="élevé">
+            <label for="eleve">Urgent</label>
+            <input type="radio" name="urgence" id="moyen" value="moyen">
+            <label for="moyen">normal</label>
+            <input type="radio" name="urgence" id="faible" value="faible">
+            <label for="faible">pas urgent</label>
         </div>
         <p>Quel est le titre de la tâche ?</p>
-        <label>Titre : </label>
-        <input type="titre">
 
+        <label for="titre">Titre : </label>
+        <input type="titre" id="titre">
+
+        <label for="description">Description : </label>
+        <input type="description" id="description">
+
+
+        <br>
+        <br>
+        <button type="submit">Ajouter</button>
     </form>
 </body>
 </html>
