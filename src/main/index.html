@@ -9,24 +9,24 @@
     <form method="POST" action="http://localhost:8080/todolist-1.0-SNAPSHOT/api/todo/create">
         <p>Quelle est l'urgence de la tâche ?</p>
         <div>
-            <input type="radio" name="urgence" id="eleve" value="élevé">
+            <input type="radio" name="urgence" id="eleve" value="eleve" />
             <label for="eleve">Urgent</label>
-            <input type="radio" name="urgence" id="moyen" value="moyen">
+            <input type="radio" name="urgence" id="moyen" value="moyen" />
             <label for="moyen">normal</label>
-            <input type="radio" name="urgence" id="faible" value="faible">
+            <input type="radio" name="urgence" id="faible" value="faible" />
             <label for="faible">pas urgent</label>
         </div>
         <p>Quel est le titre de la tâche ?</p>
 
         <label for="titre">Titre : </label>
-        <input type="titre" id="titre">
+        <input type="text" id="titre" name="titre" />
 
         <label for="description">Description : </label>
-        <input type="description" id="description">
+        <input type="text" id="description" name="description" />
 
 
-        <br>
-        <br>
+        <br />
+        <br />
         <button type="submit">Ajouter</button>
     </form>
 </body>

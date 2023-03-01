@@ -1,10 +1,9 @@
 package fr.m2i.todolist.model;
 
 public class Todo {
-    private String titre, description;
-    private Urgence urgence;
+    private String titre, description, urgence;
 
-    public Todo(String titre, String description, Urgence urgence) {
+    public Todo(String titre, String description, String urgence) {
         this.titre = titre;
         this.description = description;
         this.urgence = urgence;
@@ -26,11 +25,20 @@ public class Todo {
         this.description = description;
     }
 
-    public Urgence getUrgence() {
+    public String getUrgence() {
         return urgence;
     }
 
-    public void setUrgence(Urgence urgence) {
+    public void setUrgence(String urgence) {
         this.urgence = urgence;
+    }
+
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "titre='" + titre + '\'' +
+                ", description='" + description + '\'' +
+                ", urgence='" + urgence + '\'' +
+                '}';
     }
 }
