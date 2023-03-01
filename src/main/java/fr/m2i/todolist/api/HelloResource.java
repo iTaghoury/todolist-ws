@@ -1,4 +1,4 @@
-package fr.m2i.todolist;
+package fr.m2i.todolist.api;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
