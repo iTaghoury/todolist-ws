@@ -46,6 +46,12 @@ public class TodoResource {
     }
 
     @GET
+    @Path("/list-xml-nw")
+    @Produces(MediaType.APPLICATION_XML)
+    public LinkedList<Todo> getTodoListNoWrapper() {
+        return th.getTodoList();
+    }
+    @GET
     @Path("/test")
     @Produces(MediaType.APPLICATION_XML)
     public Todo test() {

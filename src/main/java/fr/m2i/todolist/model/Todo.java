@@ -46,17 +46,4 @@ public class Todo {
                 ", urgence='" + urgence + '\'' +
                 '}';
     }
-    public String toXMLString() {
-        return "<Todo>\n" +
-                "<titre>" +
-                this.titre +
-                "</titre>\n" +
-                "<description>" +
-                this.description +
-                "</description>\n" +
-                "<urgence>" +
-                this.urgence +
-                "</urgence>" +
-                "</Todo>";
-    }
 }

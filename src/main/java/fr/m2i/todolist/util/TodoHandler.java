@@ -12,10 +12,11 @@ import java.util.LinkedList;
 public class TodoHandler {
     private LinkedList<Todo> todoList;
     private static TodoHandler instance;
+
     static {
         instance = null;
     }
-    public TodoHandler() {
+    private TodoHandler() {
         instance = this;
         this.todoList = new LinkedList<>();
     }
