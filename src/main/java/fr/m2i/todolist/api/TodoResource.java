@@ -4,17 +4,32 @@ import fr.m2i.todolist.model.Todo;
 import fr.m2i.todolist.model.Urgence;
 import fr.m2i.todolist.util.TodoHandler;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Link;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jdk.javadoc.doclet.Reporter;
 
 import javax.print.attribute.standard.Media;
+import java.util.LinkedList;
 
 @Path("/todo")
 public class TodoResource {
     private TodoHandler th = TodoHandler.getInstance();
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String getTodo(@QueryParam("id") int id){
-        return th.getTodoFromId(id);
+    public Response getTodo(@QueryParam("id") int id){
+        try {
+            String todo = th.getTodoFromId(id);
+            return Response
+                    .status(Response.Status.OK)
+                    .entity(todo)
+                    .build();
+        } catch (IndexOutOfBoundsException e) {
+            return Response
+                    .status(Response.Status.NOT_FOUND)
+                    .entity(e.getMessage())
+                    .build();
+        }
     }
 
     @GET
@@ -22,6 +37,25 @@ public class TodoResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String getTodoList() {
         return String.format("%s", th.viewTodoList()) ;
+    }
+    @GET
+    @Path("/list-xml")
+    @Produces(MediaType.APPLICATION_XML)
+    public TodoHandler getTodo() {
+        return th;
+    }
+
+    @GET
+    @Path("/test")
+    @Produces(MediaType.APPLICATION_XML)
+    public Todo test() {
+        return th.getTodoList().get(0);
+    }
+    @GET
+    @Path("/test-json")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Todo testJSON() {
+        return th.getTodoList().get(0);
     }
 
     @POST
@@ -50,4 +84,15 @@ public class TodoResource {
         th.deleteTodo(id);
         return message;
     }
+
+    @GET
+    @Path("/error")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response serverError() {
+        return Response
+                .status(Response.Status.INTERNAL_SERVER_ERROR)
+                .entity("Server error")
+                .build();
+    }
+
 }
